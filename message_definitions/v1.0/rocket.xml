@@ -1479,11 +1479,13 @@
       <field type="int16_t" name="xmag">X Magnetic field (filtered)</field>
       <field type="int16_t" name="ymag">Y Magnetic field (filtered)</field>
       <field type="int16_t" name="zmag">Z Magnetic field (filtered)</field>
-      <field type="float" name="humidity">Humidity (filtered)</field>
-      <field type="float" name="pressure">Pressure (filtered)</field>
-      <field type="float" name="temperature" units="cdegC">Temperature (filtered)</field>
+      <field type="int16_t" name="humidity">Humidity (filtered)</field>
+      <field type="int16_t" name="pressure">Pressure (filtered)</field>
+      <field type="int16_t" name="temperature" units="cdegC">Temperature (filtered)</field>
       <field type="float" name="altitude" units="m"></field>
-      <field type="float" name="velocity" units="m/s">Velocity</field>
+      <field type="float" name="xvel" units="m/s">Velocity x axis (filtered)</field>
+      <field type="float" name="yvel" units="m/s">Velocity y axis (filtered)</field>
+      <field type="float" name="zvel" units="m/s">Velocity z axis (filtered)</field>
       <field type="int8_t" name="state">State</field>
     </message>
   </messages>
