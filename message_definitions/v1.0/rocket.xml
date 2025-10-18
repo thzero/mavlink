@@ -1482,7 +1482,7 @@
       <field type="int16_t" name="humidity">Humidity (filtered)</field>
       <field type="int16_t" name="pressure">Pressure (filtered)</field>
       <field type="int16_t" name="temperature" units="cdegC">Temperature (filtered)</field>
-      <field type="float" name="altitude" units="m"></field>
+      <field type="int64_t" name="altitude" units="m"></field>
     </message>
     <message id="1001" name="COMBINED_SENSORS_ATTITUDE_FULL">
       <description>TCombined filtered sensors and attitude.</description>
