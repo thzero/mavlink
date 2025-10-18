@@ -1467,25 +1467,16 @@
       <field type="uint8_t" name="target_component">Component ID</field>
       <field type="uint32_t" name="format" enum="TUNE_FORMAT">Bitfield of supported tune formats.</field>
     </message>
-    <message id="1000" name="COMBINED_SENSORS_ATTITUDE">
-      <description>TCombined filtered sensors and attitude.</description>
+    <message id="1000" name="BAROMETER_ATTITUDE">
+      <description>Filtered barometer and attitude.</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
-      <field type="int16_t" name="xacc">X acceleration (filtered)</field>
-      <field type="int16_t" name="yacc">Y acceleration (filtered)</field>
-      <field type="int16_t" name="zacc">Z acceleration (filtered)</field>
-      <field type="int16_t" name="xgyro">Angular speed around X axis (filtered)</field>
-      <field type="int16_t" name="ygyro">Angular speed around Y axis (filtered)</field>
-      <field type="int16_t" name="zgyro">Angular speed around Z axis (filtered)</field>
-      <field type="int16_t" name="xmag">X Magnetic field (filtered)</field>
-      <field type="int16_t" name="ymag">Y Magnetic field (filtered)</field>
-      <field type="int16_t" name="zmag">Z Magnetic field (filtered)</field>
       <field type="int16_t" name="humidity">Humidity (filtered)</field>
       <field type="int16_t" name="pressure">Pressure (filtered)</field>
       <field type="int16_t" name="temperature" units="cdegC">Temperature (filtered)</field>
-      <field type="int64_t" name="altitude" units="m"></field>
+      <field type="int32_t" name="altitude" units="m"></field>
     </message>
     <message id="1001" name="COMBINED_SENSORS_ATTITUDE_FULL">
-      <description>TCombined filtered sensors and attitude.</description>
+      <description>Combined filtered sensors and attitude.</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
       <field type="int16_t" name="xacc">X acceleration (filtered)</field>
       <field type="int16_t" name="yacc">Y acceleration (filtered)</field>
