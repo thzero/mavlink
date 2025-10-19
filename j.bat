@@ -1,0 +1,1 @@
+py -m pymavlink.tools.mavgen --lang=JavaScript_NextGen --wire-protocol=2.0 --output="%CD%\generated\include\mavlink\v2.0" "%CD%\message_definitions\v1.0\rocket.xml"
