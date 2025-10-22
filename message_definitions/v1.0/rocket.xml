@@ -283,26 +283,6 @@
         <description>FLU local tangent frame (x: Forward, y: Left, z: Up) with origin fixed relative to earth. The forward axis is aligned to the front of the vehicle in the horizontal plane.</description>
       </entry>
     </enum>
-    <enum name="MAVLINK_DATA_STREAM_TYPE">
-      <entry value="0" name="MAVLINK_DATA_STREAM_IMG_JPEG">
-        <description/>
-      </entry>
-      <entry value="1" name="MAVLINK_DATA_STREAM_IMG_BMP">
-        <description/>
-      </entry>
-      <entry value="2" name="MAVLINK_DATA_STREAM_IMG_RAW8U">
-        <description/>
-      </entry>
-      <entry value="3" name="MAVLINK_DATA_STREAM_IMG_RAW32U">
-        <description/>
-      </entry>
-      <entry value="4" name="MAVLINK_DATA_STREAM_IMG_PGM">
-        <description/>
-      </entry>
-      <entry value="5" name="MAVLINK_DATA_STREAM_IMG_PNG">
-        <description/>
-      </entry>
-    </enum>
     <enum name="WIFI_CONFIG_AP_RESPONSE">
       <description>Possible responses from a WIFI_CONFIG_AP message.</description>
       <entry value="0" name="WIFI_CONFIG_AP_RESPONSE_UNDEFINED">
@@ -339,19 +319,6 @@
         <description>WiFi disabled.</description>
       </entry>
     </enum>
-    <enum name="AUTOTUNE_AXIS" bitmask="true">
-      <description>Axes that will be autotuned by MAV_CMD_DO_AUTOTUNE_ENABLE.
-        Note that at least one flag must be set in MAV_CMD_DO_AUTOTUNE_ENABLE.param2: if none are set, the flight stack will tune its default set of axes.</description>
-      <entry value="1" name="AUTOTUNE_AXIS_ROLL">
-        <description>Autotune roll axis.</description>
-      </entry>
-      <entry value="2" name="AUTOTUNE_AXIS_PITCH">
-        <description>Autotune pitch axis.</description>
-      </entry>
-      <entry value="4" name="AUTOTUNE_AXIS_YAW">
-        <description>Autotune yaw axis.</description>
-      </entry>
-    </enum>
     <enum name="REBOOT_SHUTDOWN_ACTION">
       <description>Reboot/shutdown action for selected component in MAV_CMD_PREFLIGHT_REBOOT_SHUTDOWN.</description>
       <entry value="0" name="REBOOT_SHUTDOWN_ACTION_NONE">
@@ -377,39 +344,6 @@
       </entry>
       <entry value="20190226" name="REBOOT_SHUTDOWN_CONDITIONS_FORCE">
         <description>Force reboot/shutdown of the autopilot/component regardless of system state.</description>
-      </entry>
-    </enum>
-    <enum name="MAV_DATA_STREAM">
-      <deprecated since="2015-06" replaced_by="MESSAGE_INTERVAL"/>
-      <description>A data stream is not a fixed set of messages, but rather a
-     recommendation to the autopilot software. Individual autopilots may or may not obey
-     the recommended messages.</description>
-      <entry value="0" name="MAV_DATA_STREAM_ALL">
-        <description>Enable all data streams</description>
-      </entry>
-      <entry value="1" name="MAV_DATA_STREAM_RAW_SENSORS">
-        <description>Enable IMU_RAW, GPS_RAW, GPS_STATUS packets.</description>
-      </entry>
-      <entry value="2" name="MAV_DATA_STREAM_EXTENDED_STATUS">
-        <description>Enable GPS_STATUS, CONTROL_STATUS, AUX_STATUS</description>
-      </entry>
-      <entry value="3" name="MAV_DATA_STREAM_RC_CHANNELS">
-        <description>Enable RC_CHANNELS_SCALED, RC_CHANNELS_RAW, SERVO_OUTPUT_RAW</description>
-      </entry>
-      <entry value="4" name="MAV_DATA_STREAM_RAW_CONTROLLER">
-        <description>Enable ATTITUDE_CONTROLLER_OUTPUT, POSITION_CONTROLLER_OUTPUT, NAV_CONTROLLER_OUTPUT.</description>
-      </entry>
-      <entry value="6" name="MAV_DATA_STREAM_POSITION">
-        <description>Enable LOCAL_POSITION, GLOBAL_POSITION_INT messages.</description>
-      </entry>
-      <entry value="10" name="MAV_DATA_STREAM_EXTRA1">
-        <description>Dependent on the autopilot</description>
-      </entry>
-      <entry value="11" name="MAV_DATA_STREAM_EXTRA2">
-        <description>Dependent on the autopilot</description>
-      </entry>
-      <entry value="12" name="MAV_DATA_STREAM_EXTRA3">
-        <description>Dependent on the autopilot</description>
       </entry>
     </enum>
     <enum name="MAV_PARAM_TYPE">
@@ -625,33 +559,6 @@
         <description>Battery is not compatible due to cell configuration (e.g. 5s1p when vehicle requires 6s).</description>
       </entry>
     </enum>
-    <enum name="MAV_LANDED_STATE">
-      <description>Enumeration of landed detector states</description>
-      <entry value="0" name="MAV_LANDED_STATE_UNDEFINED">
-        <description>MAV landed state is unknown</description>
-      </entry>
-      <entry value="1" name="MAV_LANDED_STATE_ON_GROUND">
-        <description>MAV is landed (on ground)</description>
-      </entry>
-      <entry value="2" name="MAV_LANDED_STATE_IN_AIR">
-        <description>MAV is in air</description>
-      </entry>
-      <entry value="3" name="MAV_LANDED_STATE_TAKEOFF">
-        <description>MAV currently taking off</description>
-      </entry>
-      <entry value="4" name="MAV_LANDED_STATE_LANDING">
-        <description>MAV currently landing</description>
-      </entry>
-    </enum>
-    <enum name="ADSB_ALTITUDE_TYPE">
-      <description>Enumeration of the ADSB altimeter types</description>
-      <entry value="0" name="ADSB_ALTITUDE_TYPE_PRESSURE_QNH">
-        <description>Altitude reported from a Baro source using QNH reference</description>
-      </entry>
-      <entry value="1" name="ADSB_ALTITUDE_TYPE_GEOMETRIC">
-        <description>Altitude reported from a GNSS source</description>
-      </entry>
-    </enum>
     <enum name="GPS_FIX_TYPE">
       <description>Type of GPS fix</description>
       <entry value="0" name="GPS_FIX_TYPE_NO_GPS">
@@ -719,154 +626,10 @@
         <description>Format is Modern Music Markup Language (MML): https://en.wikipedia.org/wiki/Music_Macro_Language#Modern_MML.</description>
       </entry>
     </enum>
-    <enum name="FAILURE_UNIT">
-      <!-- This enum is work-in-progress and it can therefore change. It should NOT be used in stable production environments. -->
-      <description>List of possible units where failures can be injected.</description>
-      <entry value="0" name="FAILURE_UNIT_SENSOR_GYRO"/>
-      <entry value="1" name="FAILURE_UNIT_SENSOR_ACCEL"/>
-      <entry value="2" name="FAILURE_UNIT_SENSOR_MAG"/>
-      <entry value="3" name="FAILURE_UNIT_SENSOR_BARO"/>
-      <entry value="4" name="FAILURE_UNIT_SENSOR_GPS"/>
-      <entry value="5" name="FAILURE_UNIT_SENSOR_OPTICAL_FLOW"/>
-      <entry value="6" name="FAILURE_UNIT_SENSOR_VIO"/>
-      <entry value="7" name="FAILURE_UNIT_SENSOR_DISTANCE_SENSOR"/>
-      <entry value="8" name="FAILURE_UNIT_SENSOR_AIRSPEED"/>
-      <entry value="100" name="FAILURE_UNIT_SYSTEM_BATTERY"/>
-      <entry value="101" name="FAILURE_UNIT_SYSTEM_MOTOR"/>
-      <entry value="102" name="FAILURE_UNIT_SYSTEM_SERVO"/>
-      <entry value="103" name="FAILURE_UNIT_SYSTEM_AVOIDANCE"/>
-      <entry value="104" name="FAILURE_UNIT_SYSTEM_RC_SIGNAL"/>
-      <entry value="105" name="FAILURE_UNIT_SYSTEM_MAVLINK_SIGNAL"/>
-    </enum>
-    <enum name="FAILURE_TYPE">
-      <!-- This enum is work-in-progress and it can therefore change. It should NOT be used in stable production environments. -->
-      <description>List of possible failure type to inject.</description>
-      <entry value="0" name="FAILURE_TYPE_OK">
-        <description>No failure injected, used to reset a previous failure.</description>
-      </entry>
-      <entry value="1" name="FAILURE_TYPE_OFF">
-        <description>Sets unit off, so completely non-responsive.</description>
-      </entry>
-      <entry value="2" name="FAILURE_TYPE_STUCK">
-        <description>Unit is stuck e.g. keeps reporting the same value.</description>
-      </entry>
-      <entry value="3" name="FAILURE_TYPE_GARBAGE">
-        <description>Unit is reporting complete garbage.</description>
-      </entry>
-      <entry value="4" name="FAILURE_TYPE_WRONG">
-        <description>Unit is consistently wrong.</description>
-      </entry>
-      <entry value="5" name="FAILURE_TYPE_SLOW">
-        <description>Unit is slow, so e.g. reporting at slower than expected rate.</description>
-      </entry>
-      <entry value="6" name="FAILURE_TYPE_DELAYED">
-        <description>Data of unit is delayed in time.</description>
-      </entry>
-      <entry value="7" name="FAILURE_TYPE_INTERMITTENT">
-        <description>Unit is sometimes working, sometimes not.</description>
-      </entry>
-    </enum>
-    <enum name="MAG_CAL_STATUS">
-      <entry value="0" name="MAG_CAL_NOT_STARTED"/>
-      <entry value="1" name="MAG_CAL_WAITING_TO_START"/>
-      <entry value="2" name="MAG_CAL_RUNNING_STEP_ONE"/>
-      <entry value="3" name="MAG_CAL_RUNNING_STEP_TWO"/>
-      <entry value="4" name="MAG_CAL_SUCCESS"/>
-      <entry value="5" name="MAG_CAL_FAILED"/>
-      <entry value="6" name="MAG_CAL_BAD_ORIENTATION"/>
-      <entry value="7" name="MAG_CAL_BAD_RADIUS"/>
-    </enum>
     <enum name="MAV_EVENT_ERROR_REASON">
       <description>Reason for an event error response.</description>
       <entry value="0" name="MAV_EVENT_ERROR_REASON_UNAVAILABLE">
         <description>The requested event is not available (anymore).</description>
-      </entry>
-    </enum>
-    <enum name="HIL_SENSOR_UPDATED_FLAGS" bitmask="true">
-      <description>Flags in the HIL_SENSOR message indicate which fields have updated since the last message</description>
-      <entry value="1" name="HIL_SENSOR_UPDATED_XACC">
-        <description>The value in the xacc field has been updated</description>
-      </entry>
-      <entry value="2" name="HIL_SENSOR_UPDATED_YACC">
-        <description>The value in the yacc field has been updated</description>
-      </entry>
-      <entry value="4" name="HIL_SENSOR_UPDATED_ZACC">
-        <description>The value in the zacc field has been updated</description>
-      </entry>
-      <entry value="8" name="HIL_SENSOR_UPDATED_XGYRO">
-        <description>The value in the xgyro field has been updated</description>
-      </entry>
-      <entry value="16" name="HIL_SENSOR_UPDATED_YGYRO">
-        <description>The value in the ygyro field has been updated</description>
-      </entry>
-      <entry value="32" name="HIL_SENSOR_UPDATED_ZGYRO">
-        <description>The value in the zgyro field has been updated</description>
-      </entry>
-      <entry value="64" name="HIL_SENSOR_UPDATED_XMAG">
-        <description>The value in the xmag field has been updated</description>
-      </entry>
-      <entry value="128" name="HIL_SENSOR_UPDATED_YMAG">
-        <description>The value in the ymag field has been updated</description>
-      </entry>
-      <entry value="256" name="HIL_SENSOR_UPDATED_ZMAG">
-        <description>The value in the zmag field has been updated</description>
-      </entry>
-      <entry value="512" name="HIL_SENSOR_UPDATED_ABS_PRESSURE">
-        <description>The value in the abs_pressure field has been updated</description>
-      </entry>
-      <entry value="1024" name="HIL_SENSOR_UPDATED_DIFF_PRESSURE">
-        <description>The value in the diff_pressure field has been updated</description>
-      </entry>
-      <entry value="2048" name="HIL_SENSOR_UPDATED_PRESSURE_ALT">
-        <description>The value in the pressure_alt field has been updated</description>
-      </entry>
-      <entry value="4096" name="HIL_SENSOR_UPDATED_TEMPERATURE">
-        <description>The value in the temperature field has been updated</description>
-      </entry>
-      <entry value="2147483648" name="HIL_SENSOR_UPDATED_RESET">
-        <description>Full reset of attitude/position/velocities/etc was performed in sim (Bit 31).</description>
-      </entry>
-    </enum>
-    <enum name="HIGHRES_IMU_UPDATED_FLAGS" bitmask="true">
-      <description>Flags in the HIGHRES_IMU message indicate which fields have updated since the last message</description>
-      <entry value="1" name="HIGHRES_IMU_UPDATED_XACC">
-        <description>The value in the xacc field has been updated</description>
-      </entry>
-      <entry value="2" name="HIGHRES_IMU_UPDATED_YACC">
-        <description>The value in the yacc field has been updated</description>
-      </entry>
-      <entry value="4" name="HIGHRES_IMU_UPDATED_ZACC">
-        <description>The value in the zacc field has been updated since</description>
-      </entry>
-      <entry value="8" name="HIGHRES_IMU_UPDATED_XGYRO">
-        <description>The value in the xgyro field has been updated</description>
-      </entry>
-      <entry value="16" name="HIGHRES_IMU_UPDATED_YGYRO">
-        <description>The value in the ygyro field has been updated</description>
-      </entry>
-      <entry value="32" name="HIGHRES_IMU_UPDATED_ZGYRO">
-        <description>The value in the zgyro field has been updated</description>
-      </entry>
-      <entry value="64" name="HIGHRES_IMU_UPDATED_XMAG">
-        <description>The value in the xmag field has been updated</description>
-      </entry>
-      <entry value="128" name="HIGHRES_IMU_UPDATED_YMAG">
-        <description>The value in the ymag field has been updated</description>
-      </entry>
-      <entry value="256" name="HIGHRES_IMU_UPDATED_ZMAG">
-        <description>The value in the zmag field has been updated</description>
-      </entry>
-      <entry value="512" name="HIGHRES_IMU_UPDATED_ABS_PRESSURE">
-        <description>The value in the abs_pressure field has been updated</description>
-      </entry>
-      <entry value="1024" name="HIGHRES_IMU_UPDATED_DIFF_PRESSURE">
-        <description>The value in the diff_pressure field has been updated</description>
-      </entry>
-      <entry value="2048" name="HIGHRES_IMU_UPDATED_PRESSURE_ALT">
-        <description>The value in the pressure_alt field has been updated</description>
-      </entry>
-      <entry value="4096" name="HIGHRES_IMU_UPDATED_TEMPERATURE">
-        <description>The value in the temperature field has been updated</description>
       </entry>
     </enum>
   </enums>
@@ -1045,49 +808,6 @@
       <field type="uint16_t" name="servo15_raw" units="us">Servo output 15 value</field>
       <field type="uint16_t" name="servo16_raw" units="us">Servo output 16 value</field>
     </message>
-    <message id="48" name="SET_GPS_GLOBAL_ORIGIN">
-      <deprecated since="2025-04" replaced_by="MAV_CMD_SET_GLOBAL_ORIGIN"/>
-      <description>Sets the GPS coordinates of the vehicle local origin (0,0,0) position. Vehicle should emit GPS_GLOBAL_ORIGIN irrespective of whether the origin is changed. This enables transform between the local coordinate frame and the global (GPS) coordinate frame, which may be necessary when (for example) indoor and outdoor settings are connected and the MAV should move from in- to outdoor.</description>
-      <field type="uint8_t" name="target_system">System ID</field>
-      <field type="int32_t" name="latitude" units="degE7">Latitude (WGS84)</field>
-      <field type="int32_t" name="longitude" units="degE7">Longitude (WGS84)</field>
-      <field type="int32_t" name="altitude" units="mm">Altitude (MSL). Positive for up.</field>
-      <extensions/>
-      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
-    </message>
-    <message id="49" name="GPS_GLOBAL_ORIGIN">
-      <description>Publishes the GPS coordinates of the vehicle local origin (0,0,0) position. Emitted whenever a new GPS-Local position mapping is requested or set - e.g. following SET_GPS_GLOBAL_ORIGIN message.</description>
-      <field type="int32_t" name="latitude" units="degE7">Latitude (WGS84)</field>
-      <field type="int32_t" name="longitude" units="degE7">Longitude (WGS84)</field>
-      <field type="int32_t" name="altitude" units="mm">Altitude (MSL). Positive for up.</field>
-      <extensions/>
-      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
-    </message>
-    <message id="66" name="REQUEST_DATA_STREAM">
-      <deprecated since="2015-08" replaced_by="MAV_CMD_SET_MESSAGE_INTERVAL "/>
-      <description>Request a data stream.</description>
-      <field type="uint8_t" name="target_system">The target requested to send the message stream.</field>
-      <field type="uint8_t" name="target_component">The target requested to send the message stream.</field>
-      <field type="uint8_t" name="req_stream_id">The ID of the requested data stream</field>
-      <field type="uint16_t" name="req_message_rate" units="Hz">The requested message rate</field>
-      <field type="uint8_t" name="start_stop">1 to start sending, 0 to stop sending.</field>
-    </message>
-    <message id="67" name="DATA_STREAM">
-      <deprecated since="2015-08" replaced_by="MESSAGE_INTERVAL"/>
-      <description>Data stream status information.</description>
-      <field type="uint8_t" name="stream_id">The ID of the requested data stream</field>
-      <field type="uint16_t" name="message_rate" units="Hz">The message rate</field>
-      <field type="uint8_t" name="on_off">1 stream is enabled, 0 stream is stopped.</field>
-    </message>
-    <message id="74" name="VFR_HUD">
-      <description>Metrics typically displayed on a HUD for fixed wing aircraft.</description>
-      <field type="float" name="airspeed" units="m/s">Vehicle speed in form appropriate for vehicle type. For standard aircraft this is typically calibrated airspeed (CAS) or indicated airspeed (IAS) - either of which can be used by a pilot to estimate stall speed.</field>
-      <field type="float" name="groundspeed" units="m/s">Current ground speed.</field>
-      <field type="int16_t" name="heading" units="deg">Current heading in compass units (0-360, 0=north).</field>
-      <field type="uint16_t" name="throttle" units="%">Current throttle setting (0 to 100).</field>
-      <field type="float" name="alt" units="m">Current altitude (MSL).</field>
-      <field type="float" name="climb" units="m/s">Current climb rate.</field>
-    </message>
     <message id="75" name="COMMAND_INT">
       <description>Send a command with up to seven parameters to the MAV, where params 5 and 6 are integers and the other values are floats. This is preferred over COMMAND_LONG as it allows the MAV_FRAME to be specified for interpreting positional information, such as altitude. COMMAND_INT is also preferred when sending latitude and longitude data in params 5 and 6, as it allows for greater precision. Param 5 and 6 encode positional data as scaled integers, where the scaling depends on the actual command value. NaN or INT32_MAX may be used in float/integer params (respectively) to indicate optional/default values (e.g. to use the component's current latitude, yaw rather than a specific value). The command microservice is documented at https://mavlink.io/en/services/command.html</description>
       <field type="uint8_t" name="target_system">System ID</field>
@@ -1135,26 +855,6 @@
       <field type="uint8_t" name="target_system">System executing long running command. Should not be broadcast (0).</field>
       <field type="uint8_t" name="target_component">Component executing long running command.</field>
       <field type="uint16_t" name="command" enum="MAV_CMD">Command ID (of command to cancel).</field>
-    </message>
-    <message id="105" name="HIGHRES_IMU">
-      <description>The IMU readings in SI units in NED body frame</description>
-      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
-      <field type="float" name="xacc" units="m/s/s">X acceleration</field>
-      <field type="float" name="yacc" units="m/s/s">Y acceleration</field>
-      <field type="float" name="zacc" units="m/s/s">Z acceleration</field>
-      <field type="float" name="xgyro" units="rad/s">Angular speed around X axis</field>
-      <field type="float" name="ygyro" units="rad/s">Angular speed around Y axis</field>
-      <field type="float" name="zgyro" units="rad/s">Angular speed around Z axis</field>
-      <field type="float" name="xmag" units="gauss">X Magnetic field</field>
-      <field type="float" name="ymag" units="gauss">Y Magnetic field</field>
-      <field type="float" name="zmag" units="gauss">Z Magnetic field</field>
-      <field type="float" name="abs_pressure" units="hPa">Absolute pressure</field>
-      <field type="float" name="diff_pressure" units="hPa">Differential pressure</field>
-      <field type="float" name="pressure_alt">Altitude calculated from pressure</field>
-      <field type="float" name="temperature" units="degC">Temperature</field>
-      <field type="uint16_t" name="fields_updated" enum="HIGHRES_IMU_UPDATED_FLAGS">Bitmap for fields that have updated since last message</field>
-      <extensions/>
-      <field type="uint8_t" name="id" instance="true">Id. Ids are numbered from 0 and map to IMUs numbered from 1 (e.g. IMU1 will have a message with id=0)</field>
     </message>
     <message id="108" name="SIM_STATE">
       <description>Status of simulation environment, if used</description>
@@ -1206,6 +906,26 @@
       <field type="uint64_t" name="time_usec" units="us">Timestamp for image frame (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
       <field type="uint32_t" name="seq">Image frame sequence</field>
     </message>
+    <message id="90" name="HIL_STATE">
+      <deprecated since="2013-07" replaced_by="HIL_STATE_QUATERNION">Suffers from missing airspeed fields and singularities due to Euler angles</deprecated>
+      <description>Sent from simulation to autopilot. This packet is useful for high throughput applications such as hardware in the loop simulations.</description>
+      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
+      <field type="float" name="roll" units="rad">Roll angle</field>
+      <field type="float" name="pitch" units="rad">Pitch angle</field>
+      <field type="float" name="yaw" units="rad">Yaw angle</field>
+      <field type="float" name="rollspeed" units="rad/s">Body frame roll / phi angular speed</field>
+      <field type="float" name="pitchspeed" units="rad/s">Body frame pitch / theta angular speed</field>
+      <field type="float" name="yawspeed" units="rad/s">Body frame yaw / psi angular speed</field>
+      <field type="int32_t" name="lat" units="degE7">Latitude</field>
+      <field type="int32_t" name="lon" units="degE7">Longitude</field>
+      <field type="int32_t" name="alt" units="mm">Altitude</field>
+      <field type="int16_t" name="vx" units="cm/s">Ground X Speed (Latitude)</field>
+      <field type="int16_t" name="vy" units="cm/s">Ground Y Speed (Longitude)</field>
+      <field type="int16_t" name="vz" units="cm/s">Ground Z Speed (Altitude)</field>
+      <field type="int16_t" name="xacc" units="mG">X acceleration</field>
+      <field type="int16_t" name="yacc" units="mG">Y acceleration</field>
+      <field type="int16_t" name="zacc" units="mG">Z acceleration</field>
+    </message>
     <message id="113" name="HIL_GPS">
       <description>The global position, as returned by the Global Positioning System (GPS). This is
                  NOT the global position estimate of the system, but rather a RAW sensor value. See message GLOBAL_POSITION_INT for the global position estimate.</description>
@@ -1244,6 +964,23 @@
       <field type="int16_t" name="xacc" units="mG">X acceleration</field>
       <field type="int16_t" name="yacc" units="mG">Y acceleration</field>
       <field type="int16_t" name="zacc" units="mG">Z acceleration</field>
+    </message>
+    <message id="92" name="HIL_RC_INPUTS_RAW">
+      <description>Sent from simulation to autopilot. The RAW values of the RC channels received. The standard PPM modulation is as follows: 1000 microseconds: 0%, 2000 microseconds: 100%. Individual receivers/transmitters might violate this specification.</description>
+      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
+      <field type="uint16_t" name="chan1_raw" units="us">RC channel 1 value</field>
+      <field type="uint16_t" name="chan2_raw" units="us">RC channel 2 value</field>
+      <field type="uint16_t" name="chan3_raw" units="us">RC channel 3 value</field>
+      <field type="uint16_t" name="chan4_raw" units="us">RC channel 4 value</field>
+      <field type="uint16_t" name="chan5_raw" units="us">RC channel 5 value</field>
+      <field type="uint16_t" name="chan6_raw" units="us">RC channel 6 value</field>
+      <field type="uint16_t" name="chan7_raw" units="us">RC channel 7 value</field>
+      <field type="uint16_t" name="chan8_raw" units="us">RC channel 8 value</field>
+      <field type="uint16_t" name="chan9_raw" units="us">RC channel 9 value</field>
+      <field type="uint16_t" name="chan10_raw" units="us">RC channel 10 value</field>
+      <field type="uint16_t" name="chan11_raw" units="us">RC channel 11 value</field>
+      <field type="uint16_t" name="chan12_raw" units="us">RC channel 12 value</field>
+      <field type="uint8_t" name="rssi" invalid="UINT8_MAX">Receive signal strength indicator in device-dependent units/scale. Values: [0-254], UINT8_MAX: invalid/unknown.</field>
     </message>
     <message id="117" name="LOG_REQUEST_LIST">
       <description>Request a list of available logs. On some systems calling this may stop on-board logging until LOG_REQUEST_END is called. If there are no log files available this request shall be answered with one LOG_ENTRY message with id = 0 and num_logs = 0.</description>
@@ -1285,70 +1022,6 @@
       <field type="uint8_t" name="target_system">System ID</field>
       <field type="uint8_t" name="target_component">Component ID</field>
     </message>
-    <message id="125" name="POWER_STATUS">
-      <description>Power supply status</description>
-      <field type="uint16_t" name="Vcc" units="mV">5V rail voltage.</field>
-      <field type="uint16_t" name="Vservo" units="mV">Servo rail voltage.</field>
-      <field type="uint16_t" name="flags" enum="MAV_POWER_STATUS">Bitmap of power supply status flags.</field>
-    </message>
-    <message id="234" name="HIGH_LATENCY">
-      <deprecated since="2020-10" replaced_by="HIGH_LATENCY2"/>
-      <description>Message appropriate for high latency connections like Iridium</description>
-      <field type="uint8_t" name="base_mode" enum="MAV_MODE_FLAG">Bitmap of enabled system modes.</field>
-      <field type="uint32_t" name="custom_mode">A bitfield for use for autopilot-specific flags.</field>
-      <field type="uint8_t" name="landed_state" enum="MAV_LANDED_STATE">The landed state. Is set to MAV_LANDED_STATE_UNDEFINED if landed state is unknown.</field>
-      <field type="int16_t" name="roll" units="cdeg">roll</field>
-      <field type="int16_t" name="pitch" units="cdeg">pitch</field>
-      <field type="uint16_t" name="heading" units="cdeg">heading</field>
-      <field type="int8_t" name="throttle" units="%">throttle (percentage)</field>
-      <field type="int16_t" name="heading_sp" units="cdeg">heading setpoint</field>
-      <field type="int32_t" name="latitude" units="degE7">Latitude</field>
-      <field type="int32_t" name="longitude" units="degE7">Longitude</field>
-      <field type="int16_t" name="altitude_amsl" units="m">Altitude above mean sea level</field>
-      <field type="int16_t" name="altitude_sp" units="m">Altitude setpoint relative to the home position</field>
-      <field type="uint8_t" name="airspeed" units="m/s">airspeed</field>
-      <field type="uint8_t" name="airspeed_sp" units="m/s">airspeed setpoint</field>
-      <field type="uint8_t" name="groundspeed" units="m/s">groundspeed</field>
-      <field type="int8_t" name="climb_rate" units="m/s">climb rate</field>
-      <field type="uint8_t" name="gps_nsat" invalid="UINT8_MAX">Number of satellites visible. If unknown, set to UINT8_MAX</field>
-      <field type="uint8_t" name="gps_fix_type" enum="GPS_FIX_TYPE">GPS Fix type.</field>
-      <field type="uint8_t" name="battery_remaining" units="%">Remaining battery (percentage)</field>
-      <field type="int8_t" name="temperature" units="degC">Autopilot temperature (degrees C)</field>
-      <field type="int8_t" name="temperature_air" units="degC">Air temperature (degrees C) from airspeed sensor</field>
-      <field type="uint8_t" name="failsafe">failsafe (each bit represents a failsafe where 0=ok, 1=failsafe active (bit0:RC, bit1:batt, bit2:GPS, bit3:GCS, bit4:fence)</field>
-      <field type="uint8_t" name="wp_num">current waypoint number</field>
-      <field type="uint16_t" name="wp_distance" units="m">distance to target</field>
-    </message>
-    <message id="235" name="HIGH_LATENCY2">
-      <description>Message appropriate for high latency connections like Iridium (version 2)</description>
-      <field type="uint32_t" name="timestamp" units="ms">Timestamp (milliseconds since boot or Unix epoch)</field>
-      <field type="uint8_t" name="type" enum="MAV_TYPE">Type of the MAV (quadrotor, helicopter, etc.)</field>
-      <field type="uint8_t" name="autopilot" enum="MAV_AUTOPILOT">Autopilot type / class. Use MAV_AUTOPILOT_INVALID for components that are not flight controllers.</field>
-      <field type="uint16_t" name="custom_mode">A bitfield for use for autopilot-specific flags (2 byte version).</field>
-      <field type="int32_t" name="latitude" units="degE7">Latitude</field>
-      <field type="int32_t" name="longitude" units="degE7">Longitude</field>
-      <field type="int16_t" name="altitude" units="m">Altitude above mean sea level</field>
-      <field type="int16_t" name="target_altitude" units="m">Altitude setpoint</field>
-      <field type="uint8_t" name="heading" units="deg/2">Heading</field>
-      <field type="uint8_t" name="target_heading" units="deg/2">Heading setpoint</field>
-      <field type="uint16_t" name="target_distance" units="dam">Distance to target waypoint or position</field>
-      <field type="uint8_t" name="throttle" units="%">Throttle</field>
-      <field type="uint8_t" name="airspeed" units="m/s*5">Airspeed</field>
-      <field type="uint8_t" name="airspeed_sp" units="m/s*5">Airspeed setpoint</field>
-      <field type="uint8_t" name="groundspeed" units="m/s*5">Groundspeed</field>
-      <field type="uint8_t" name="windspeed" units="m/s*5">Windspeed</field>
-      <field type="uint8_t" name="wind_heading" units="deg/2">Wind heading</field>
-      <field type="uint8_t" name="eph" units="dm">Maximum error horizontal position since last message</field>
-      <field type="uint8_t" name="epv" units="dm">Maximum error vertical position since last message</field>
-      <field type="int8_t" name="temperature_air" units="degC">Air temperature</field>
-      <field type="int8_t" name="climb_rate" units="dm/s">Maximum climb rate magnitude since last message</field>
-      <field type="int8_t" name="battery" units="%" invalid="-1">Battery level (-1 if field not provided).</field>
-      <field type="uint16_t" name="wp_num">Current waypoint number</field>
-      <field type="uint16_t" name="failure_flags" enum="HL_FAILURE_FLAG">Bitmap of failure flags.</field>
-      <field type="int8_t" name="custom0">Field for custom payload.</field>
-      <field type="int8_t" name="custom1">Field for custom payload.</field>
-      <field type="int8_t" name="custom2">Field for custom payload.</field>
-    </message>
     <message id="244" name="MESSAGE_INTERVAL">
       <description>
         The interval between messages for a particular MAVLink message ID.
@@ -1357,20 +1030,6 @@
 	This interface replaces DATA_STREAM.</description>
       <field type="uint16_t" name="message_id">The ID of the requested MAVLink message. v1.0 is limited to 254 messages.</field>
       <field type="int32_t" name="interval_us" units="us">The interval between two messages. A value of -1 indicates this stream is disabled, 0 indicates it is not available, &gt; 0 indicates the interval at which it is sent.</field>
-    </message>
-    <message id="250" name="DEBUG_VECT">
-      <description>To debug something using a named 3D vector.</description>
-      <field type="char[10]" name="name" instance="true">Name</field>
-      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
-      <field type="float" name="x">x</field>
-      <field type="float" name="y">y</field>
-      <field type="float" name="z">z</field>
-    </message>
-    <message id="254" name="DEBUG">
-      <description>Send a debug value. The index is used to discriminate between values. These values show up in the plot of QGroundControl as DEBUG N.</description>
-      <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot).</field>
-      <field type="uint8_t" name="ind">index of debug variable</field>
-      <field type="float" name="value">DEBUG value</field>
     </message>
     <message id="261" name="STORAGE_INFORMATION">
       <description>Information about a storage medium. This message is sent in response to a request with MAV_CMD_REQUEST_MESSAGE and whenever the status of the storage changes (STORAGE_STATUS). Use MAV_CMD_REQUEST_MESSAGE.param2 to indicate the index/id of requested storage: 0 for all, 1 for first, 2 for second, etc.</description>
@@ -1399,60 +1058,6 @@
       <extensions/>
       <field type="int8_t" name="mode" enum="WIFI_CONFIG_AP_MODE">WiFi Mode.</field>
       <field type="int8_t" name="response" enum="WIFI_CONFIG_AP_RESPONSE">Message acceptance response (sent back to GS).</field>
-    </message>
-    <message id="320" name="PARAM_EXT_REQUEST_READ">
-      <description>Request to read the value of a parameter with either the param_id string id or param_index. PARAM_EXT_VALUE should be emitted in response.</description>
-      <field type="uint8_t" name="target_system">System ID</field>
-      <field type="uint8_t" name="target_component">Component ID</field>
-      <field type="char[16]" name="param_id">Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string</field>
-      <field type="int16_t" name="param_index" invalid="-1">Parameter index. Set to -1 to use the Parameter ID field as identifier (else param_id will be ignored)</field>
-    </message>
-    <message id="321" name="PARAM_EXT_REQUEST_LIST">
-      <description>Request all parameters of this component. All parameters should be emitted in response as PARAM_EXT_VALUE.</description>
-      <field type="uint8_t" name="target_system">System ID</field>
-      <field type="uint8_t" name="target_component">Component ID</field>
-    </message>
-    <message id="322" name="PARAM_EXT_VALUE">
-      <description>Emit the value of a parameter. The inclusion of param_count and param_index in the message allows the recipient to keep track of received parameters and allows them to re-request missing parameters after a loss or timeout.</description>
-      <field type="char[16]" name="param_id">Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string</field>
-      <field type="char[128]" name="param_value">Parameter value</field>
-      <field type="uint8_t" name="param_type" enum="MAV_PARAM_EXT_TYPE">Parameter type.</field>
-      <field type="uint16_t" name="param_count">Total number of parameters</field>
-      <field type="uint16_t" name="param_index">Index of this parameter</field>
-    </message>
-    <message id="323" name="PARAM_EXT_SET">
-      <description>Set a parameter value. In order to deal with message loss (and retransmission of PARAM_EXT_SET), when setting a parameter value and the new value is the same as the current value, you will immediately get a PARAM_ACK_ACCEPTED response. If the current state is PARAM_ACK_IN_PROGRESS, you will accordingly receive a PARAM_ACK_IN_PROGRESS in response.</description>
-      <field type="uint8_t" name="target_system">System ID</field>
-      <field type="uint8_t" name="target_component">Component ID</field>
-      <field type="char[16]" name="param_id">Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string</field>
-      <field type="char[128]" name="param_value">Parameter value</field>
-      <field type="uint8_t" name="param_type" enum="MAV_PARAM_EXT_TYPE">Parameter type.</field>
-    </message>
-    <message id="324" name="PARAM_EXT_ACK">
-      <description>Response from a PARAM_EXT_SET message.</description>
-      <field type="char[16]" name="param_id">Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string</field>
-      <field type="char[128]" name="param_value">Parameter value (new value if PARAM_ACK_ACCEPTED, current value otherwise)</field>
-      <field type="uint8_t" name="param_type" enum="MAV_PARAM_EXT_TYPE">Parameter type.</field>
-      <field type="uint8_t" name="param_result" enum="PARAM_ACK">Result code.</field>
-    </message>
-    <message id="345" name="PARAM_ERROR">
-      <wip/>
-      <!-- This enum is work-in-progress and it can therefore change. It should NOT be used in stable production environments. -->
-      <description>Parameter set/get error. Returned from a MAVLink node in response to an error in the parameter protocol, for example failing to set a parameter because it does not exist.
-      </description>
-      <field type="uint8_t" name="target_system">System ID</field>
-      <field type="uint8_t" name="target_component">Component ID</field>
-      <field type="char[16]" name="param_id">Parameter id. Terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string</field>
-      <field type="int16_t" name="param_index">Parameter index. Will be -1 if the param ID field should be used as an identifier (else the param id will be ignored)</field>
-      <field type="uint8_t" name="error" enum="MAV_PARAM_ERROR">Error being returned to client.</field>
-    </message>
-    <message id="350" name="DEBUG_FLOAT_ARRAY">
-      <description>Large debug/prototyping array. The message uses the maximum available payload for data. The array_id and name fields are used to discriminate between messages in code and in user interfaces (respectively). Do not use in production code.</description>
-      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
-      <field type="char[10]" name="name">Name, for human-friendly display in a Ground Control Station</field>
-      <field type="uint16_t" name="array_id" instance="true">Unique ID used to discriminate between arrays</field>
-      <extensions/>
-      <field type="float[58]" name="data">data</field>
     </message>
     <message id="400" name="PLAY_TUNE_V2">
       <description>Play vehicle tone/tune (buzzer). Supersedes message PLAY_TUNE.</description>
@@ -1494,6 +1099,16 @@
       <field type="uint32_t" name="xvel" units="m/s">Velocity x axis (filtered)</field>
       <field type="uint32_t" name="yvel" units="m/s">Velocity y axis (filtered)</field>
       <field type="uint32_t" name="zvel" units="m/s">Velocity z axis (filtered)</field>
+    </message>
+    <message id="15002" name="COMMAND_SHORT">
+      <description>Send a command</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="command" enum="MAV_CMD">The scheduled action for the mission item.</field>
+      <field type="uint8_t" name="confirmation">0: First transmission of this command. 1-255: Confirmation transmissions (e.g. for kill command)</field>
+      <field type="int32_t" name="param1" invalid="INT32_MAX"></field>
+      <field type="float" name="param2" invalid="NaN"></field>
+      <field type="char[32]" name="param3"></field>
     </message>
   </messages>
 </mavlink>
